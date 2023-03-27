@@ -28,28 +28,41 @@ async def on_follow(event: FollowEvent):
 # On comment , check input and simulate appropriate key stroke
 @client.on("comment")
 async def on_comment(event: CommentEvent):
-    # Press and release the 'a' key
-    keyboard.press_and_release('a')
+    
+    process_input(event.comment)
     print(f"{event.user.nickname} -> {event.comment}")
 
 
-    # if {event.comment} == "a":
-    #     print(f"{event.user.nickname} -> User pressed A")
-    # elif {event.comment} == "b":
-    #     print(f"{event.user.nickname} -> User pressed B")
-    # elif {event.comment} == "up":
-    #     print(f"{event.user.nickname} -> User pressed Up")
-    # elif {event.comment} == "down":
-    #     print(f"{event.user.nickname} -> User pressed Down")
-    # elif {event.comment} == "left":
-    #     print(f"{event.user.nickname} -> User pressed Left")
-    # elif {event.comment} == "right":
-    #     print(f"{event.user.nickname} -> User pressed Right")
     
-#comment = {event.comment}
 # Switch case to process inputs
-    
-        
+def process_input(comment):
+    # Process comment and simulate a key stroke
+    if(comment == "a"):
+        keyboard.press_and_release('x')
+    elif(comment == "b"):
+        keyboard.press_and_release('z')
+    elif(comment == "x"):
+        keyboard.press_and_release('s')
+    elif(comment == "y"):
+        keyboard.press_and_release('a')
+    elif(comment == "l"):
+        keyboard.press_and_release('q')
+    elif(comment == "r"):
+        keyboard.press_and_release('w')
+    elif(comment == "up"):
+        keyboard.press_and_release('up')
+    elif(comment == "down"):
+        keyboard.press_and_release('down')
+    elif(comment == "left"):
+        keyboard.press_and_release('left')
+    elif(comment == "right"):
+        keyboard.press_and_release('right')
+    elif(comment == "start"):
+        keyboard.press_and_release('enter')
+    elif(comment == "select"):
+        keyboard.press_and_release('right shift')
+    print("Input processed: " + comment)
+
 
 
 @client.on("join")
