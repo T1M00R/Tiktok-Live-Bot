@@ -1,12 +1,14 @@
 from TikTokLive import TikTokLiveClient
 from TikTokLive.types.events import CommentEvent, ConnectEvent, LikeEvent, JoinEvent, DisconnectEvent, FollowEvent
 import keyboard
+import time
 
 
 
 # Instantiate the client with the user's username
-client: TikTokLiveClient = TikTokLiveClient(unique_id="@i_haskill")
+client: TikTokLiveClient = TikTokLiveClient(unique_id="@clickbro69420")
 
+#"@i_haskill"
 #"@clickbro69420"
 
 # Define how you want to handle specific events via decorator
@@ -28,40 +30,63 @@ async def on_follow(event: FollowEvent):
 # On comment , check input and simulate appropriate key stroke
 @client.on("comment")
 async def on_comment(event: CommentEvent):
-    
     process_input(event.comment)
     print(f"{event.user.nickname} -> {event.comment}")
-
-
     
+
+
 # Switch case to process inputs
-def process_input(comment):
+def process_input(event: str):
     # Process comment and simulate a key stroke
-    if(comment == "a"):
-        keyboard.press_and_release('x')
-    elif(comment == "b"):
-        keyboard.press_and_release('z')
-    elif(comment == "x"):
-        keyboard.press_and_release('s')
-    elif(comment == "y"):
-        keyboard.press_and_release('a')
-    elif(comment == "l"):
-        keyboard.press_and_release('q')
-    elif(comment == "r"):
-        keyboard.press_and_release('w')
-    elif(comment == "up"):
-        keyboard.press_and_release('up')
-    elif(comment == "down"):
-        keyboard.press_and_release('down')
-    elif(comment == "left"):
-        keyboard.press_and_release('left')
-    elif(comment == "right"):
-        keyboard.press_and_release('right')
-    elif(comment == "start"):
-        keyboard.press_and_release('enter')
-    elif(comment == "select"):
-        keyboard.press_and_release('right shift')
-    print("Input processed: " + comment)
+    if event == "a":
+        keyboard.press('l')
+        time.sleep(0.1)
+        keyboard.release('l')
+    elif event == "b":
+        keyboard.press('k')
+        time.sleep(0.1)
+        keyboard.release('k')
+    elif event == "x":
+        keyboard.press('s')
+        time.sleep(0.1)
+        keyboard.release('s')
+    elif event == "y":
+        keyboard.press('a')
+        time.sleep(0.1)
+        keyboard.release('a')
+    elif event == "l":
+        keyboard.press('i')
+        time.sleep(0.1)
+        keyboard.release('i')
+    elif event == "r":
+        keyboard.press('o')
+        time.sleep(0.1)
+        keyboard.release('o')
+    elif event == "up":
+        keyboard.press('w')
+        time.sleep(0.1)
+        keyboard.release('w')
+    elif event == "down":
+        keyboard.press('s')
+        time.sleep(0.1)
+        keyboard.release('s')
+    elif event == "left":
+        keyboard.press('a')
+        time.sleep(0.1)
+        keyboard.release('a')
+    elif event == "right":
+        keyboard.press('d')
+        time.sleep(0.1)
+        keyboard.release('d')
+    elif event == "start":
+        keyboard.press('enter')
+        time.sleep(0.1)
+        keyboard.release('enter')
+    elif event == "select":
+        keyboard.press('backspace')
+        time.sleep(0.1)
+        keyboard.release('backspace')
+    # print("Input processed: " + comment)
 
 
 
