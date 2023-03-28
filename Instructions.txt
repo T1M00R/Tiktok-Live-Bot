@@ -1,0 +1,10 @@
+Run to start
+------------------------
+python tiktoklivebot.py
+
+------------------------
+This program reads in Tiktok Live comments and simulates key presses on your local machine. 
+This can be used to play games on an emulator
+
+------------------------
+Author - Timoor Nurzhanov
