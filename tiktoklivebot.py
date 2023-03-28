@@ -16,9 +16,9 @@ client: TikTokLiveClient = TikTokLiveClient(unique_id="@clickbro69420")
 async def on_connect(_: ConnectEvent):
     print("Connected to Room ID:", client.room_id)
 
-@client.on("like")
-async def on_like(event: LikeEvent):
-    print(f"@{event.user.unique_id} liked the stream!")
+# @client.on("like")
+# async def on_like(event: LikeEvent):
+#     print(f"@{event.user.unique_id} liked the stream!")
 
 @client.on("follow")
 async def on_follow(event: FollowEvent):
@@ -90,9 +90,9 @@ def process_input(event: str):
 
 
 
-@client.on("join")
-async def on_join(event: JoinEvent):
-    print(f"@{event.user.unique_id} joined the stream!")
+# @client.on("join")
+# async def on_join(event: JoinEvent):
+#     print(f"@{event.user.unique_id} joined the stream!")
 
 
 
