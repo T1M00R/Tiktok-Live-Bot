@@ -35,58 +35,81 @@ async def on_comment(event: CommentEvent):
     
 
 
-# Switch case to process inputs
+# Process input with count feature
 def process_input(event: str):
+
+    # Case insensitive
+    event = event.lower()
+    # Parse modifier if it exists
+    if len(event) > 1 and event[-1].isdigit():
+        modifier = int(event[-1])
+        event = event[:-1]
+    else:
+        modifier = 1
+
     # Process comment and simulate a key stroke
     if event == "a":
-        keyboard.press('l')
-        time.sleep(0.1)
-        keyboard.release('l')
+        key = 'l'
     elif event == "b":
-        keyboard.press('k')
-        time.sleep(0.1)
-        keyboard.release('k')
+        key = 'k'
     elif event == "x":
-        keyboard.press('s')
-        time.sleep(0.1)
-        keyboard.release('s')
+        key = 's'
     elif event == "y":
-        keyboard.press('a')
-        time.sleep(0.1)
-        keyboard.release('a')
+        key = 'a'
     elif event == "l":
-        keyboard.press('i')
-        time.sleep(0.1)
-        keyboard.release('i')
+        key = 'i'
     elif event == "r":
-        keyboard.press('o')
-        time.sleep(0.1)
-        keyboard.release('o')
+        key = 'o'
     elif event == "up":
-        keyboard.press('w')
-        time.sleep(0.1)
-        keyboard.release('w')
+        key = 'w'
     elif event == "down":
-        keyboard.press('s')
-        time.sleep(0.1)
-        keyboard.release('s')
+        key = 's'
     elif event == "left":
-        keyboard.press('a')
-        time.sleep(0.1)
-        keyboard.release('a')
+        key = 'a'
     elif event == "right":
-        keyboard.press('d')
-        time.sleep(0.1)
-        keyboard.release('d')
+        key = 'd'
     elif event == "start":
-        keyboard.press('enter')
-        time.sleep(0.1)
-        keyboard.release('enter')
+        key = 'enter'
     elif event == "select":
-        keyboard.press('backspace')
-        time.sleep(0.1)
-        keyboard.release('backspace')
-    # print("Input processed: " + comment)
+        key = 'backspace'
+    elif event == "skip":
+        key = 'k'
+        keyboard.press(key)
+        time.sleep(0.2)
+        keyboard.release(key)
+        time.sleep(0.3)
+        keyboard.press(key)
+        time.sleep(0.2)
+        keyboard.release(key)
+        time.sleep(0.3)
+        keyboard.press(key)
+        time.sleep(0.2)
+        keyboard.release(key)
+        time.sleep(0.3)
+    elif event == "spin":
+        keyboard.press("w")
+        time.sleep(0.2)
+        keyboard.release("w")
+        keyboard.press("a")
+        time.sleep(0.2)
+        keyboard.release("a")
+        keyboard.press("s")
+        time.sleep(0.2)
+        keyboard.release("s")
+        keyboard.press("d")
+        time.sleep(0.2)
+        keyboard.release("d")
+
+        
+    else:
+        return  # Invalid event
+
+    # Send key with modifier
+    for _ in range(min(modifier, 9)):
+        keyboard.press(key)
+        time.sleep(0.2)
+        keyboard.release(key)
+
 
 
 
