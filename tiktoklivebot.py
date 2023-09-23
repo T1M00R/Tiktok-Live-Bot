@@ -5,11 +5,10 @@ import time
 
 
 
-# Instantiate the client with the user's username
-client: TikTokLiveClient = TikTokLiveClient(unique_id="@clickbro69420")
+# Instantiate the client with the user's username e.g. @name
+client: TikTokLiveClient = TikTokLiveClient(unique_id="")
 
-#"@i_haskill"
-#"@clickbro69420"
+
 
 # Define how you want to handle specific events via decorator
 @client.on("connect")
